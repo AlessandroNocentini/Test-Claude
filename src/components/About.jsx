@@ -18,10 +18,15 @@ export default function About() {
             </div>
           </div>
           <div className="about__text">
-            <p>{personal.bio}</p>
-            <a href={personal.cvUrl} className="btn btn--outline" target="_blank" rel="noreferrer">
-              Download CV
-            </a>
+            {personal.bio.map((paragraph, i) => (
+              <p key={i}>{paragraph}</p>
+            ))}
+            <div className="about__actions">
+              <a href={personal.cvUrl} className="btn" target="_blank" rel="noreferrer">
+                {personal.cvTitle}
+              </a>
+              <a href="#contact" className="btn btn--outline">Get In Touch</a>
+            </div>
           </div>
         </div>
       </div>

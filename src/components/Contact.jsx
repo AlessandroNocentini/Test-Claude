@@ -12,8 +12,9 @@ export default function Contact() {
           Say Hello
         </a>
         <div className="contact__socials">
-          <a href={personal.github} target="_blank" rel="noreferrer">GitHub</a>
-          <a href={personal.linkedin} target="_blank" rel="noreferrer">LinkedIn</a>
+          {personal.github && <a href={personal.github} target="_blank" rel="noreferrer">GitHub</a>}
+          {personal.linkedin && <a href={personal.linkedin} target="_blank" rel="noreferrer">LinkedIn</a>}
+          {personal.instagram && <a href={personal.instagram} target="_blank" rel="noreferrer">Instagram</a>}
         </div>
       </div>
     </section>

@@ -1,0 +1,178 @@
+{
+  "profile": {
+    "name": "Alessandro Nocentini",
+    "headline": "Automation and Control Engineer | AI Research Engineer",
+    "bio": "",
+    "location": "Milan, Italy",
+    "links": [
+      {
+        "label": "Linkedin",
+        "url": "https://www.linkedin.com/in/alessandro-nocentini-9976ba1a3/"
+      },
+      {
+        "label": "GitHub",
+        "url": "https://github.com/AlessandroNocentini"
+      },
+      {
+        "label": "Instagram",
+        "url": "https://www.instagram.com/alessandro_n_17/"
+      }
+    ]
+  },
+  "about": {
+    "paragraphs": [
+      "MSc graduate in Automation and Control Engineering from Politecnico di Milano. I'm a highly motivated individual with a passion for tackling challenges and applying learned concepts in real-world applications. During my Bachelor's and Master's degrees, I developed a strong interest in Robotics and Machine Learning.",
+      "My distinct traits are self-improvement and multi-disciplinarity. I like undertaking projects to challenge my capabilities and expand my skillset, and this led me to develop a versatile and variegated range of skills (both technical and non-technical) that spans across different fields.",
+      "I am constantly ready to face new challenges, confident of my problem solving skills and detail-oriented mindset, aiming to meet and even exceed other people's expectations.",
+      "On my free time I am an active person, who loves to practice different sports, and a creative mind, with the passion for traditional and digital art forms."
+    ],
+    "focusAreas": []
+  },
+  "cv": {
+    "title": "Download CV (PDF)",
+    "url": "https://alessandronocentini.github.io/projects/CV_Alessandro_Nocentini.pdf"
+  },
+  "skills": [
+    { "name": "Generative AI", "category": "Artificial Intelligence", "level": "Expert" },
+    { "name": "Python", "category": "Programming Languages", "level": "Advanced" },
+    { "name": "Machine Learning", "category": "Artificial Intelligence", "level": "Advanced" },
+    { "name": "Reinforcement Learning", "category": "Artificial Intelligence", "level": "Advanced" },
+    { "name": "MATLAB", "category": "Engineering & Simulation", "level": "Expert" },
+    { "name": "Simulink", "category": "Engineering & Simulation", "level": "Expert" },
+    { "name": "HTML", "category": "Frontend", "level": "Advanced" },
+    { "name": "CSS", "category": "Frontend", "level": "Advanced" },
+    { "name": "SQL", "category": "Backend & Databases", "level": "Advanced" },
+    { "name": "C", "category": "Programming Languages", "level": "Advanced" },
+    { "name": "Java", "category": "Programming Languages", "level": "Intermediate" },
+    { "name": "JavaScript", "category": "Frontend", "level": "Intermediate" },
+    { "name": "C#", "category": "Programming Languages", "level": "Beginner" },
+    { "name": "CAD Modeling", "category": "Hardware & Design", "level": "Expert" },
+    { "name": "3D Printing", "category": "Hardware & Design", "level": "Expert" },
+    { "name": "MuJoCo", "category": "Engineering & Simulation", "level": "Advanced" },
+    { "name": "XML", "category": "Data Formats", "level": "Advanced" },
+    { "name": "Arduino", "category": "Hardware & Design", "level": "Advanced" },
+    { "name": "UI/UX Design", "category": "Hardware & Design", "level": "Advanced" },
+    { "name": "Linux", "category": "DevOps & Systems", "level": "Expert" }
+  ],
+  "languages": [
+    { "name": "Italian", "level": "Native speaker" },
+    { "name": "English", "level": "Proficient" }
+  ],
+  "work": [
+    {
+      "role": "AI Research Engineer",
+      "company": "AIRIC | Artificial Intelligence Research and Innovation Center - Politecnico di Milano",
+      "start": "2025-06",
+      "end": "Present",
+      "domain": "Applied Artificial Intelligence",
+      "description": "Research and development of AI solutions to solve real-world problems of companies of various industrial sectors.",
+      "bullets": ["Generative AI", "Machine Learning", "Reinforcement Learning", "Data Analysis", "Computer Vision", "Python", "Linux"],
+      "links": ["https://airic.polimi.it/en/"]
+    },
+    {
+      "role": "Research Fellow",
+      "company": "Department of Mechanical Engineering - Politecnico di Milano",
+      "start": "2025-05",
+      "end": "2026-05",
+      "domain": "Prognostics & Health Monitoring (PHM), Avionics Embedded Systems",
+      "description": "Research and development of Health Monitoring methods in avionic systems, analyzing data packet retransmissions under extreme thermal and mechanical stress. In collaboration with Leonardo S.p.A., responsible for full-cycle development including laboratory environment configuration, embedded software module design for electronic boards, rigorous environmental testing (high temperature and vibration), and the implementation of anomaly detection algorithms.",
+      "bullets": ["Embedded Systems", "Avionic Systems", "Health Monitoring", "PCI Express", "Data Analysis", "Linux Kernel"],
+      "links": ["https://www.mecc.polimi.it/en"]
+    }
+  ],
+  "education": [
+    {
+      "degree": "Master of Science Degree",
+      "field": "Automation and Control Engineering",
+      "institution": "Politecnico di Milano",
+      "start": "2020",
+      "end": "2024",
+      "thesis": "**A User-Friendly Tool for the Verification of Protection Systems in LV Distribution Grids**\nIn partnership with ABB, developed a user-friendly tool for the formal verification of protection systems in LV distribution grids. This involved creating a custom notation (Simulink library) for easy graphical grid modeling and implementing an intuitive application (MATLAB app) to control the process. Designed and implemented supplementary features to enhance the user experience, validated through summative usability testing.",
+      "description": "Control of Industrial Robots, Data Driven Control System Design, Advanced and Multivariable Control, Software Engineering, Machine Learning, Reinforcement Learning, Computer Aided Manufacturing",
+      "links": [
+        { "label": "Program page", "url": "https://www.ccsatm.polimi.it/laurea-magistrale-2/?lang=en" }
+      ]
+    },
+    {
+      "degree": "Bachelor Degree",
+      "field": "Automation Engineering",
+      "institution": "Politecnico di Milano",
+      "start": "2017",
+      "end": "2020",
+      "description": "Process Control, Electrical Machines and Drives, Fundamentals of Robotics, Mechanical Systems Modeling",
+      "links": [
+        { "label": "Program page", "url": "https://www.ccsatm.polimi.it/bachelors-degree/?lang=en" }
+      ]
+    },
+    {
+      "degree": "Bachelor Degree (placeholder)",
+      "field": "Example Field",
+      "institution": "Example University",
+      "start": "2014",
+      "end": "2017",
+      "description": "Placeholder education entry to demonstrate the timeline layout with multiple items.",
+      "links": []
+    }
+  ],
+  "projects": [
+    {
+      "kind": "academic",
+      "type": "project",
+      "name": "Automation and Control Laboratory",
+      "shortDescription": "Design, simulation and testing of control techniques on a Quanser Torsion System.",
+      "longDescription": "Performed experiments on a Quanser Multi-dof Torsion System to acquire data and model the plant, estimating the uncertain parameters. Designed, simulated and tested different control techniques (from the simplest model-based PID controllers, to the advanced data-driven approaches like VRFT and Self Tuning) through MATLAB and Simulink softwares.",
+      "technologies": ["MATLAB", "Simulink", "Control System Design"],
+      "tags": [],
+      "images": { "thumbnail": "", "gallery": [] },
+      "links": []
+    },
+    {
+      "kind": "personal",
+      "type": "project",
+      "name": "Latency Lab (Placeholder)",
+      "shortDescription": "A placeholder project card for the gallery/cards UI.",
+      "longDescription": "",
+      "technologies": ["Next.js", "PostgreSQL", "Redis"],
+      "tags": [],
+      "images": { "thumbnail": "", "gallery": [] },
+      "links": [{ "label": "Live demo", "url": "https://example.com/projects/latency-lab" }]
+    },
+    {
+      "kind": "professional",
+      "type": "paper",
+      "name": "Research Paper (Placeholder)",
+      "shortDescription": "A placeholder paper entry to demonstrate the professional/paper card variant.",
+      "longDescription": "",
+      "technologies": ["Python", "Machine Learning"],
+      "tags": [],
+      "images": { "thumbnail": "", "gallery": [] },
+      "links": [],
+      "paper": {
+        "venue": "Example Conference 2025",
+        "year": "2025",
+        "doiUrl": "https://doi.org/example",
+        "pdfUrl": "https://example.com/paper.pdf"
+      }
+    }
+  ],
+  "certificates": [
+    {
+      "name": "Cloud Engineer Certificate (Placeholder)",
+      "issuer": "Example Cloud Academy",
+      "year": "2024",
+      "url": "https://example.com/certificates/cloud-engineer"
+    },
+    {
+      "name": "Frontend Performance Badge (Placeholder)",
+      "issuer": "Web Vitals Institute",
+      "year": "2025",
+      "url": "https://example.com/certificates/frontend-performance"
+    }
+  ],
+  "contacts": {
+    "email": "nosce.98@gmail.com",
+    "links": [
+      { "label": "Email", "url": "mailto:nosce.98@gmail.com" }
+    ]
+  }
+}
