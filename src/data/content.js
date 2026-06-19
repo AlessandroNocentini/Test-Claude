@@ -1,87 +1,76 @@
-export const personal = {
-  name: 'Alessandro Nocentini',
-  title: 'Software Engineer',
-  tagline: 'I build things for the web.',
-  bio: `Passionate software engineer with a love for crafting clean, efficient, and user-friendly digital experiences.
-  I thrive at the intersection of design and engineering, turning complex problems into elegant solutions.`,
-  email: 'nosce.98@gmail.com',
-  github: 'https://github.com/AlessandroNocentini',
-  linkedin: 'https://linkedin.com/in/alessandronocentini',
-  cvUrl: '/assets/cv.pdf',
-  avatarUrl: '/assets/avatar.jpg',
+import data from './siteContent.json'
+
+function formatDate(str) {
+  if (!str || str === 'Present') return str
+  const [year, month] = str.split('-')
+  if (!month) return year
+  const months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec']
+  return `${months[parseInt(month, 10) - 1]} ${year}`
 }
 
-export const experience = [
-  {
-    id: 1,
-    role: 'Software Engineer',
-    company: 'Company Name',
-    period: '2023 — Present',
-    description:
-      'Describe your main responsibilities and achievements here. Highlight impact and technologies used.',
-    tags: ['React', 'Node.js', 'TypeScript'],
-  },
-  {
-    id: 2,
-    role: 'Junior Developer',
-    company: 'Previous Company',
-    period: '2021 — 2023',
-    description:
-      'Describe what you built, maintained, or improved. Quantify outcomes where possible.',
-    tags: ['JavaScript', 'Python', 'PostgreSQL'],
-  },
-]
+export const personal = {
+  name: data.profile.name,
+  headline: data.profile.headline,
+  title: data.profile.headline.split('|')[0].trim(),
+  location: data.profile.location,
+  bio: data.about.paragraphs,
+  email: data.contacts.email,
+  cvUrl: data.cv.url,
+  cvTitle: data.cv.title,
+  avatarUrl: '/assets/avatar.jpg',
+  github: data.profile.links.find(l => l.label === 'GitHub')?.url ?? '',
+  linkedin: data.profile.links.find(l => l.label === 'Linkedin')?.url ?? '',
+  instagram: data.profile.links.find(l => l.label === 'Instagram')?.url ?? '',
+}
 
-export const skills = [
-  { category: 'Frontend', items: ['React', 'JavaScript', 'TypeScript', 'HTML', 'CSS', 'Vite'] },
-  { category: 'Backend', items: ['Node.js', 'Python', 'REST APIs', 'GraphQL'] },
-  { category: 'Database', items: ['PostgreSQL', 'MongoDB', 'Redis'] },
-  { category: 'Tools', items: ['Git', 'Docker', 'GitHub Actions', 'Figma', 'VS Code'] },
-]
+// Group skills by category, preserving order of first appearance
+export const skills = Object.values(
+  data.skills.reduce((acc, skill) => {
+    if (!acc[skill.category]) acc[skill.category] = { category: skill.category, items: [] }
+    acc[skill.category].items.push({ name: skill.name, level: skill.level })
+    return acc
+  }, {})
+)
 
-export const projects = [
-  {
-    id: 1,
-    name: 'Project Alpha',
-    description:
-      'A brief description of what this project does and the problem it solves. Keep it punchy.',
-    tags: ['React', 'Node.js', 'MongoDB'],
-    githubUrl: 'https://github.com/AlessandroNocentini',
-    liveUrl: '',
-  },
-  {
-    id: 2,
-    name: 'Project Beta',
-    description:
-      'Another cool project. Explain the tech choices and why this project is interesting.',
-    tags: ['Python', 'FastAPI', 'PostgreSQL'],
-    githubUrl: 'https://github.com/AlessandroNocentini',
-    liveUrl: '',
-  },
-  {
-    id: 3,
-    name: 'Project Gamma',
-    description:
-      'A third project showcasing a different set of skills or domain knowledge.',
-    tags: ['TypeScript', 'Next.js', 'Tailwind'],
-    githubUrl: 'https://github.com/AlessandroNocentini',
-    liveUrl: '',
-  },
-]
+export const languages = data.languages
 
-export const certifications = [
-  {
-    id: 1,
-    name: 'Certification Name',
-    issuer: 'Issuing Organization',
-    date: '2024',
-    credentialUrl: '',
-  },
-  {
-    id: 2,
-    name: 'Another Certification',
-    issuer: 'Another Organization',
-    date: '2023',
-    credentialUrl: '',
-  },
-]
+export const experience = data.work.map((job, i) => ({
+  id: i + 1,
+  role: job.role,
+  company: job.company,
+  period: `${formatDate(job.start)} — ${formatDate(job.end)}`,
+  domain: job.domain,
+  description: job.description,
+  bullets: job.bullets ?? [],
+  links: (job.links ?? []).map(url => ({ label: 'Visit', url })),
+}))
+
+export const education = data.education.map((edu, i) => ({
+  id: i + 1,
+  degree: edu.degree,
+  field: edu.field,
+  institution: edu.institution,
+  period: `${edu.start} — ${edu.end}`,
+  thesis: edu.thesis ?? null,
+  description: edu.description ?? '',
+  links: edu.links ?? [],
+}))
+
+export const projects = data.projects.map((p, i) => ({
+  id: i + 1,
+  name: p.name,
+  kind: p.kind,
+  type: p.type,
+  description: p.shortDescription || p.description || '',
+  technologies: p.technologies ?? [],
+  links: p.links ?? [],
+  paper: p.paper ?? null,
+}))
+
+export const certifications = data.certificates.map((c, i) => ({
+  id: i + 1,
+  name: c.name,
+  issuer: c.issuer,
+  date: c.year,
+  credentialUrl: c.url ?? '',
+}))

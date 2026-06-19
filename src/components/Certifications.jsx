@@ -15,12 +15,7 @@ export default function Certifications() {
                 <p className="cert-card__date">{cert.date}</p>
               </div>
               {cert.credentialUrl && (
-                <a
-                  href={cert.credentialUrl}
-                  className="cert-card__link"
-                  target="_blank"
-                  rel="noreferrer"
-                >
+                <a href={cert.credentialUrl} className="cert-card__link" target="_blank" rel="noreferrer">
                   Verify →
                 </a>
               )}

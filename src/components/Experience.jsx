@@ -14,13 +14,25 @@ export default function Experience() {
                   <div>
                     <h3 className="timeline__role">{job.role}</h3>
                     <p className="timeline__company">{job.company}</p>
+                    {job.domain && <p className="timeline__domain">{job.domain}</p>}
                   </div>
                   <span className="timeline__period">{job.period}</span>
                 </div>
                 <p className="timeline__desc">{job.description}</p>
-                <div className="tag-list">
-                  {job.tags.map((t) => <span key={t} className="tag">{t}</span>)}
-                </div>
+                {job.bullets.length > 0 && (
+                  <div className="tag-list">
+                    {job.bullets.map((b) => <span key={b} className="tag">{b}</span>)}
+                  </div>
+                )}
+                {job.links.length > 0 && (
+                  <div className="timeline__links">
+                    {job.links.map((l) => (
+                      <a key={l.url} href={l.url} target="_blank" rel="noreferrer" className="inline-link">
+                        {l.label} →
+                      </a>
+                    ))}
+                  </div>
+                )}
               </div>
             </div>
           ))}

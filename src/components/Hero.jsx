@@ -6,11 +6,13 @@ export default function Hero() {
       <div className="hero__content">
         <p className="hero__greeting">Hi, I'm</p>
         <h1 className="hero__name">{personal.name}</h1>
-        <h2 className="hero__title">{personal.title}</h2>
-        <p className="hero__tagline">{personal.tagline}</p>
+        <h2 className="hero__title">{personal.headline}</h2>
+        <p className="hero__location">📍 {personal.location}</p>
         <div className="hero__actions">
           <a href="#projects" className="btn">View My Work</a>
-          <a href="#contact" className="btn btn--outline">Get In Touch</a>
+          <a href={personal.cvUrl} className="btn btn--outline" target="_blank" rel="noreferrer">
+            {personal.cvTitle}
+          </a>
         </div>
       </div>
       <div className="hero__decoration" aria-hidden="true">

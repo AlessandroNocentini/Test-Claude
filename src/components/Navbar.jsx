@@ -4,6 +4,7 @@ import { personal } from '../data/content'
 const links = [
   { label: 'About', href: '#about' },
   { label: 'Experience', href: '#experience' },
+  { label: 'Education', href: '#education' },
   { label: 'Skills', href: '#skills' },
   { label: 'Projects', href: '#projects' },
   { label: 'Certifications', href: '#certifications' },
@@ -33,7 +34,7 @@ export default function Navbar() {
           </a>
         ))}
         <a href={personal.cvUrl} className="btn btn--sm" target="_blank" rel="noreferrer">
-          Download CV
+          CV
         </a>
       </nav>
 
