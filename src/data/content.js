@@ -68,12 +68,22 @@ export const education = data.education.map((edu, i) => ({
   links: edu.links ?? [],
 }))
 
+const LEVEL_PCT = { Expert: 100, Advanced: 75, Intermediate: 50, Beginner: 25, 'Native speaker': 100, Proficient: 75 }
+const LEVEL_CLASS = { Expert: 'lvl-expert', Advanced: 'lvl-advanced', Intermediate: 'lvl-intermediate', Beginner: 'lvl-beginner', 'Native speaker': 'lvl-expert', Proficient: 'lvl-advanced' }
+
+export const skillsFlat = [
+  ...data.skills.map(s => ({ name: s.name, level: s.level, pct: LEVEL_PCT[s.level] ?? 50, cls: LEVEL_CLASS[s.level] ?? '' })),
+  ...data.languages.map(l => ({ name: l.name, level: l.level, pct: LEVEL_PCT[l.level] ?? 50, cls: LEVEL_CLASS[l.level] ?? '' })),
+].sort((a, b) => b.pct - a.pct)
+
 export const projects = data.projects.map((p, i) => ({
   id: i + 1,
   name: p.name,
   kind: p.kind,
   type: p.type,
   description: p.shortDescription || p.description || '',
+  longDescription: p.longDescription || '',
+  images: p.images ?? { thumbnail: '', gallery: [] },
   technologies: p.technologies ?? [],
   links: p.links ?? [],
   paper: p.paper ?? null,

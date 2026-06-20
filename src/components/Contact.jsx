@@ -33,14 +33,13 @@ export default function Contact() {
           © {new Date().getFullYear()} {personal.name}
         </p>
 
-        <a
-          href="/#admin"
+        <button
           className="contact__admin-link"
-          style={{ display: 'block', marginTop: '2rem', fontSize: '0.7rem', opacity: 0.25, color: 'inherit', textDecoration: 'none', letterSpacing: '0.08em' }}
-          onClick={e => { e.preventDefault(); window.location.href = '/#admin'; window.location.reload() }}
+          style={{ display: 'block', marginTop: '2rem', fontSize: '0.7rem', opacity: 0.25, color: 'inherit', background: 'none', border: 'none', cursor: 'pointer', letterSpacing: '0.08em', fontFamily: 'inherit' }}
+          onClick={() => { window.location.hash = '#admin'; window.location.reload() }}
         >
           admin
-        </a>
+        </button>
       </div>
     </section>
   )

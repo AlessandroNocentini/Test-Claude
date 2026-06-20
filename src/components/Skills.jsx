@@ -1,43 +1,50 @@
-import { skills, languages } from '../data/content'
+import { useEffect, useRef } from 'react'
+import { skillsFlat } from '../data/content'
 import useScrollReveal from '../hooks/useScrollReveal'
 
-const LEVEL_ORDER = ['Expert', 'Advanced', 'Intermediate', 'Beginner']
-const LEVEL_CLASS = {
-  Expert:       'lvl-expert',
-  Advanced:     'lvl-advanced',
-  Intermediate: 'lvl-intermediate',
-  Beginner:     'lvl-beginner',
-}
-
 export default function Skills() {
-  const ref = useScrollReveal()
-  const allGroups = [
-    ...skills,
-    { category: 'Languages', items: languages.map(l => ({ name: l.name, level: l.level })) },
-  ]
+  const sectionRef = useScrollReveal()
+  const rowRefs = useRef([])
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const fill = entry.target.querySelector('.skill-bar__fill')
+            if (fill) fill.style.width = fill.dataset.pct + '%'
+            observer.unobserve(entry.target)
+          }
+        })
+      },
+      { threshold: 0.1 }
+    )
+    rowRefs.current.forEach(el => el && observer.observe(el))
+    return () => observer.disconnect()
+  }, [])
 
   return (
-    <section id="skills" className="section" ref={ref}>
+    <section id="skills" className="section" ref={sectionRef}>
       <div className="container">
         <div className="sec-header reveal">
           <span className="sec-num">04 / Skills</span>
           <h2 className="sec-title">Skills & Tools</h2>
         </div>
 
-        <div className="skills__grid">
-          {allGroups.map((group, i) => (
-            <div key={group.category} className="skills__card reveal" style={{'--delay': `${i * 0.05}s`}}>
-              <p className="skills__cat">{group.category}</p>
-              <div className="skills__items">
-                {group.items
-                  .slice()
-                  .sort((a, b) => LEVEL_ORDER.indexOf(a.level) - LEVEL_ORDER.indexOf(b.level))
-                  .map((item) => (
-                    <div key={item.name} className="skill-row">
-                      <span className="skill-row__name">{item.name}</span>
-                      <span className={`skill-lvl ${LEVEL_CLASS[item.level] ?? ''}`}>{item.level}</span>
-                    </div>
-                  ))}
+        <div className="skills__bars">
+          {skillsFlat.map((s, i) => (
+            <div
+              key={s.name}
+              className="skill-bar reveal"
+              style={{ '--delay': `${i * 0.025}s` }}
+              ref={el => rowRefs.current[i] = el}
+            >
+              <div className="skill-bar__labels">
+                <span className="skill-bar__name">{s.name}</span>
+                <span className={`skill-lvl ${s.cls}`}>{s.level}</span>
+              </div>
+              <div className="skill-bar__track">
+                <div className="skill-bar__fill" data-pct={s.pct} style={{ width: '0%' }} />
               </div>
             </div>
           ))}
