@@ -1,24 +1,32 @@
 import { certifications } from '../data/content'
+import useScrollReveal from '../hooks/useScrollReveal'
 
 export default function Certifications() {
+  const ref = useScrollReveal()
+
   return (
-    <section id="certifications" className="section certifications">
+    <section id="certifications" className="section" ref={ref}>
       <div className="container">
-        <h2 className="section__title">Certifications</h2>
-        <div className="certs__grid">
-          {certifications.map((cert) => (
-            <div key={cert.id} className="cert-card">
-              <div className="cert-card__badge">✦</div>
-              <div className="cert-card__body">
-                <h3 className="cert-card__name">{cert.name}</h3>
-                <p className="cert-card__issuer">{cert.issuer}</p>
-                <p className="cert-card__date">{cert.date}</p>
+        <div className="sec-header reveal">
+          <span className="sec-num">06 / Certifications</span>
+          <h2 className="sec-title">Certifications</h2>
+        </div>
+
+        <div className="certs__list">
+          {certifications.map((cert, i) => (
+            <div key={cert.id} className="cert-item reveal" style={{'--delay': `${i * 0.08}s`}}>
+              <div>
+                <p className="cert-item__name">{cert.name}</p>
+                <p className="cert-item__sub">{cert.issuer}</p>
               </div>
-              {cert.credentialUrl && (
-                <a href={cert.credentialUrl} className="cert-card__link" target="_blank" rel="noreferrer">
-                  Verify →
-                </a>
-              )}
+              <div className="cert-item__right">
+                <span className="cert-item__year">{cert.date}</span>
+                {cert.credentialUrl && (
+                  <a href={cert.credentialUrl} className="cert-item__verify" target="_blank" rel="noreferrer">
+                    Verify ↗
+                  </a>
+                )}
+              </div>
             </div>
           ))}
         </div>

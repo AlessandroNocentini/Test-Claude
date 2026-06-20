@@ -1,22 +1,33 @@
 import { skills, languages } from '../data/content'
+import useScrollReveal from '../hooks/useScrollReveal'
 
 const LEVEL_ORDER = ['Expert', 'Advanced', 'Intermediate', 'Beginner']
 const LEVEL_CLASS = {
-  Expert: 'level--expert',
-  Advanced: 'level--advanced',
-  Intermediate: 'level--intermediate',
-  Beginner: 'level--beginner',
+  Expert:       'lvl-expert',
+  Advanced:     'lvl-advanced',
+  Intermediate: 'lvl-intermediate',
+  Beginner:     'lvl-beginner',
 }
 
 export default function Skills() {
+  const ref = useScrollReveal()
+  const allGroups = [
+    ...skills,
+    { category: 'Languages', items: languages.map(l => ({ name: l.name, level: l.level })) },
+  ]
+
   return (
-    <section id="skills" className="section skills">
+    <section id="skills" className="section" ref={ref}>
       <div className="container">
-        <h2 className="section__title">Skills</h2>
+        <div className="sec-header reveal">
+          <span className="sec-num">04 / Skills</span>
+          <h2 className="sec-title">Skills & Tools</h2>
+        </div>
+
         <div className="skills__grid">
-          {skills.map((group) => (
-            <div key={group.category} className="skills__card">
-              <h3 className="skills__category">{group.category}</h3>
+          {allGroups.map((group, i) => (
+            <div key={group.category} className="skills__card reveal" style={{'--delay': `${i * 0.05}s`}}>
+              <p className="skills__cat">{group.category}</p>
               <div className="skills__items">
                 {group.items
                   .slice()
@@ -24,24 +35,12 @@ export default function Skills() {
                   .map((item) => (
                     <div key={item.name} className="skill-row">
                       <span className="skill-row__name">{item.name}</span>
-                      <span className={`skill-level ${LEVEL_CLASS[item.level]}`}>{item.level}</span>
+                      <span className={`skill-lvl ${LEVEL_CLASS[item.level] ?? ''}`}>{item.level}</span>
                     </div>
                   ))}
               </div>
             </div>
           ))}
-
-          <div className="skills__card">
-            <h3 className="skills__category">Languages</h3>
-            <div className="skills__items">
-              {languages.map((lang) => (
-                <div key={lang.name} className="skill-row">
-                  <span className="skill-row__name">{lang.name}</span>
-                  <span className="skill-level level--expert">{lang.level}</span>
-                </div>
-              ))}
-            </div>
-          </div>
         </div>
       </div>
     </section>

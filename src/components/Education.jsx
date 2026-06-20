@@ -1,58 +1,59 @@
 import { education } from '../data/content'
+import useScrollReveal from '../hooks/useScrollReveal'
 
 function parseThesis(text) {
   if (!text) return null
-  return text.split(/(\*\*[^*]+\*\*)/).map((part, i) => {
+  return text.split(/(\*\*[^*]+\*\*)/).flatMap((part, i) => {
     if (part.startsWith('**') && part.endsWith('**')) {
-      return <strong key={i}>{part.slice(2, -2)}</strong>
+      return [<strong key={i}>{part.slice(2, -2)}</strong>]
     }
-    return part
+    return part.split('\n').flatMap((line, j) =>
+      j === 0 ? [line] : [<br key={`${i}-${j}`} />, line]
+    )
   })
 }
 
 export default function Education() {
+  const ref = useScrollReveal()
+
   return (
-    <section id="education" className="section education">
+    <section id="education" className="section" ref={ref}>
       <div className="container">
-        <h2 className="section__title">Education</h2>
+        <div className="sec-header reveal">
+          <span className="sec-num">03 / Education</span>
+          <h2 className="sec-title">Education</h2>
+        </div>
+
         <div className="timeline">
-          {education.map((edu) => (
-            <div key={edu.id} className="timeline__item">
-              <div className="timeline__dot" />
-              <div className="timeline__card">
-                <div className="timeline__header">
-                  <div>
-                    <h3 className="timeline__role">{edu.degree}</h3>
-                    <p className="timeline__company">{edu.field}</p>
-                    <p className="timeline__domain">{edu.institution}</p>
-                  </div>
-                  <span className="timeline__period">{edu.period}</span>
-                </div>
+          {education.map((edu, i) => (
+            <div key={edu.id} className="timeline__item reveal" style={{'--delay': `${i * 0.1}s`}}>
+              <div className="timeline__aside">
+                <span className="timeline__period">{edu.period}</span>
+                <span className="timeline__domain">{edu.institution}</span>
+              </div>
+              <div className="timeline__body">
+                <h3 className="timeline__role">{edu.degree}</h3>
+                <p className="timeline__company">{edu.field}</p>
 
                 {edu.description && (
-                  <p className="timeline__desc">
-                    <span className="edu__label">Courses: </span>{edu.description}
-                  </p>
+                  <div className="edu__courses">
+                    <span className="edu__label">Courses</span>
+                    {edu.description}
+                  </div>
                 )}
 
                 {edu.thesis && (
                   <div className="edu__thesis">
-                    <p className="edu__thesis-text">
-                      <span className="edu__label">Thesis: </span>
-                      {parseThesis(edu.thesis).map((part, i) =>
-                        typeof part === 'string'
-                          ? part.split('\n').map((line, j) => j === 0 ? line : <span key={j}><br />{line}</span>)
-                          : part
-                      )}
-                    </p>
+                    <span className="edu__label">Thesis</span>
+                    <p className="edu__thesis-text">{parseThesis(edu.thesis)}</p>
                   </div>
                 )}
 
                 {edu.links.length > 0 && (
-                  <div className="timeline__links">
+                  <div className="timeline__links" style={{marginTop: '1rem'}}>
                     {edu.links.map((l) => (
                       <a key={l.url} href={l.url} target="_blank" rel="noreferrer" className="inline-link">
-                        {l.label} →
+                        {l.label} ↗
                       </a>
                     ))}
                   </div>
