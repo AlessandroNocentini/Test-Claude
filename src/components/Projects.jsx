@@ -13,9 +13,7 @@ export default function Projects() {
   const [activeFilter, setActiveFilter] = useState('All')
   const [selectedProject, setSelectedProject] = useState(null)
 
-  const visible = activeFilter === 'All'
-    ? projects
-    : projects.filter(p => p.kind === activeFilter.toLowerCase())
+  const isHidden = (p) => activeFilter !== 'All' && p.kind !== activeFilter.toLowerCase()
 
   return (
     <section id="projects" className="section" ref={ref}>
@@ -39,12 +37,12 @@ export default function Projects() {
         </div>
 
         <div className="projects__grid">
-          {visible.map((p, i) => (
+          {projects.map((p, i) => (
             <div
               key={p.id}
-              className="project-card reveal"
+              className={`project-card reveal${isHidden(p) ? ' project-card--hidden' : ''}`}
               style={{ '--delay': `${i * 0.08}s`, cursor: 'pointer' }}
-              onClick={() => setSelectedProject(p)}
+              onClick={() => !isHidden(p) && setSelectedProject(p)}
             >
               <div className="project-card__meta">
                 <span className={`badge ${KIND_CLASS[p.kind]}`}>{KIND_LABEL[p.kind]}</span>

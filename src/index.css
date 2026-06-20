@@ -865,6 +865,7 @@ body::before {
   border-color: var(--accent);
   background: var(--accent-dim);
 }
+.project-card--hidden { display: none; }
 
 /* ── Project modal ───────────────────────────────────────── */
 .modal-overlay {
