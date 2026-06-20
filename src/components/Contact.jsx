@@ -32,6 +32,15 @@ export default function Contact() {
         <p className="contact__copy reveal" style={{'--delay':'0.4s'}}>
           © {new Date().getFullYear()} {personal.name}
         </p>
+
+        <a
+          href="/#admin"
+          className="contact__admin-link"
+          style={{ display: 'block', marginTop: '2rem', fontSize: '0.7rem', opacity: 0.25, color: 'inherit', textDecoration: 'none', letterSpacing: '0.08em' }}
+          onClick={e => { e.preventDefault(); window.location.href = '/#admin'; window.location.reload() }}
+        >
+          admin
+        </a>
       </div>
     </section>
   )

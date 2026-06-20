@@ -1,4 +1,16 @@
-import data from './siteContent.json'
+import bundledData from './siteContent.json'
+
+const STORAGE_KEY = 'portfolioData'
+
+function loadData() {
+  try {
+    const s = typeof localStorage !== 'undefined' && localStorage.getItem(STORAGE_KEY)
+    if (s) return { ...bundledData, ...JSON.parse(s) }
+  } catch {}
+  return bundledData
+}
+
+const data = loadData()
 
 function formatDate(str) {
   if (!str || str === 'Present') return str
