@@ -40,9 +40,9 @@ export default function Projects() {
           {projects.map((p, i) => (
             <div
               key={p.id}
-              className={`project-card reveal${isHidden(p) ? ' project-card--hidden' : ''}`}
-              style={{ '--delay': `${i * 0.08}s`, cursor: 'pointer' }}
-              onClick={() => !isHidden(p) && setSelectedProject(p)}
+              className="project-card reveal"
+              style={{ '--delay': `${i * 0.08}s`, cursor: 'pointer', display: isHidden(p) ? 'none' : undefined }}
+              onClick={() => setSelectedProject(p)}
             >
               <div className="project-card__meta">
                 <span className={`badge ${KIND_CLASS[p.kind]}`}>{KIND_LABEL[p.kind]}</span>
