@@ -26,7 +26,9 @@ export default function ProjectsSection() {
       ...d,
       projects: [...d.projects, {
         _id: crypto.randomUUID(), name: '', kind: 'personal', type: 'project',
-        year: '', description: '', technologies: [], links: [], paper: null,
+        year: '', shortDescription: '', longDescription: '',
+        images: { thumbnail: '', gallery: [] },
+        technologies: [], links: [], paper: null,
       }],
     }))
 
@@ -82,9 +84,17 @@ export default function ProjectsSection() {
                 onBlur={e => update(p._id, 'year', e.target.value)} />
             </label>
           </div>
-          <label className="adm-label">Description
-            <textarea className="adm-textarea" defaultValue={p.description} rows={3}
-              onBlur={e => update(p._id, 'description', e.target.value)} />
+          <label className="adm-label">Short Description <span className="adm-hint">(shown on card)</span>
+            <textarea className="adm-textarea" defaultValue={p.shortDescription ?? p.description ?? ''} rows={2}
+              onBlur={e => update(p._id, 'shortDescription', e.target.value)} />
+          </label>
+          <label className="adm-label">Long Description <span className="adm-hint">(shown in modal)</span>
+            <textarea className="adm-textarea" defaultValue={p.longDescription ?? ''} rows={4}
+              onBlur={e => update(p._id, 'longDescription', e.target.value)} />
+          </label>
+          <label className="adm-label">Thumbnail URL
+            <input className="adm-input" defaultValue={p.images?.thumbnail ?? ''}
+              onBlur={e => update(p._id, 'images', { ...(p.images ?? { gallery: [] }), thumbnail: e.target.value })} />
           </label>
           <label className="adm-label">Technologies</label>
           <TagEditor

@@ -174,5 +174,22 @@
     "links": [
       { "label": "Email", "url": "mailto:nosce.98@gmail.com" }
     ]
+  },
+  "palette": {
+    "--bg":                "#0c0b0f",
+    "--bg-alt":            "#0f0e13",
+    "--surface":           "#161420",
+    "--accent":            "#c9a96e",
+    "--accent-lt":         "#e2cfa0",
+    "--text":              "#c8c1b7",
+    "--muted":             "#5e5a55",
+    "--heading":           "#f0ebe3",
+    "--lvl-expert":        "#c9a96e",
+    "--lvl-advanced":      "#7ea8d4",
+    "--lvl-intermediate":  "#7abf9a",
+    "--lvl-beginner":      "#7a7a7a",
+    "--badge-academic":    "#7abf9a",
+    "--badge-personal":    "#7ea8d4",
+    "--badge-professional":"#c9a96e"
   }
 }

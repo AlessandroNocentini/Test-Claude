@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import Cursor       from './components/Cursor'
 import Navbar       from './components/Navbar'
 import Hero         from './components/Hero'
@@ -11,6 +12,14 @@ import Certifications from './components/Certifications'
 import Contact      from './components/Contact'
 
 export default function App() {
+  useEffect(() => {
+    try {
+      const s = localStorage.getItem('portfolioData')
+      const palette = s && JSON.parse(s).palette
+      if (palette) Object.entries(palette).forEach(([k, v]) => document.documentElement.style.setProperty(k, v))
+    } catch {}
+  }, [])
+
   return (
     <>
       <Cursor />

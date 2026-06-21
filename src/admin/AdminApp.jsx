@@ -9,6 +9,7 @@ import SkillsSection      from './sections/SkillsSection'
 import ProjectsSection    from './sections/ProjectsSection'
 import CertificatesSection from './sections/CertificatesSection'
 import ContactSection     from './sections/ContactSection'
+import PaletteSection    from './sections/PaletteSection'
 
 const TABS = [
   { id: 'profile',      label: 'Profile',      Component: ProfileSection },
@@ -18,6 +19,7 @@ const TABS = [
   { id: 'projects',     label: 'Projects',      Component: ProjectsSection },
   { id: 'certificates', label: 'Certificates',  Component: CertificatesSection },
   { id: 'contact',      label: 'Contact',       Component: ContactSection },
+  { id: 'palette',     label: 'Palette',       Component: PaletteSection },
 ]
 
 function AdminLayout() {
