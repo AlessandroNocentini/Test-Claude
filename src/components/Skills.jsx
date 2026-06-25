@@ -26,8 +26,8 @@ export default function Skills() {
   return (
     <section id="skills" className="section" ref={sectionRef}>
       <div className="container">
-        <div className="sec-header reveal">
-          <span className="sec-num">04 / Skills</span>
+        <div className="sec-header reveal" data-num="04">
+          <span className="sec-num">Skills</span>
           <h2 className="sec-title">Skills & Tools</h2>
         </div>
 
@@ -41,7 +41,10 @@ export default function Skills() {
             >
               <div className="skill-bar__labels">
                 <span className="skill-bar__name">{s.name}</span>
-                <span className={`skill-lvl ${s.cls}`}>{s.level}</span>
+                <div className="skill-bar__right">
+                  <span className="skill-bar__pct">{s.pct}%</span>
+                  <span className={`skill-lvl ${s.cls}`}>{s.level}</span>
+                </div>
               </div>
               <div className="skill-bar__track">
                 <div className="skill-bar__fill" data-pct={s.pct} style={{ width: '0%' }} />

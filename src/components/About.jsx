@@ -7,8 +7,8 @@ export default function About() {
   return (
     <section id="about" className="section" ref={ref}>
       <div className="container">
-        <div className="sec-header reveal">
-          <span className="sec-num">01 / About</span>
+        <div className="sec-header reveal" data-num="01">
+          <span className="sec-num">About</span>
           <h2 className="sec-title">Who I Am</h2>
         </div>
 
