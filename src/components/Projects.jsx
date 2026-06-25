@@ -36,6 +36,19 @@ export default function Projects() {
           ))}
         </div>
 
+        <div className="projects__filters reveal" style={{ '--delay': '0.05s' }}>
+          {FILTERS.map(f => (
+            <button
+              key={f}
+              type="button"
+              className={`projects__filter-btn${activeFilter === f ? ' projects__filter-btn--active' : ''}`}
+              onClick={() => setActiveFilter(f)}
+            >
+              {f}
+            </button>
+          ))}
+        </div>
+
         <div className="projects__grid">
           {projects.map((p, i) => (
             <div
