@@ -13,12 +13,28 @@ export default function About() {
         </div>
 
         <div className="about__layout">
-          <div className="about__left">
-            <p className="about__tagline reveal" style={{'--delay':'0.1s'}}>
-              Engineering <em>intelligent</em> systems<br />
-              for the real world.
-            </p>
-            <div className="about__image-wrap reveal" style={{'--delay':'0.2s'}}>
+          <aside className="about__left">
+            <div className="about__panel reveal" style={{'--delay':'0.05s'}}>
+              <div className="about__panel-row">
+                <span className="about__panel-label">STATUS</span>
+                <span className="about__panel-value">
+                  <span className="about__online-dot" aria-hidden="true" />ACTIVE
+                </span>
+              </div>
+              <div className="about__panel-row">
+                <span className="about__panel-label">LOCATION</span>
+                <span className="about__panel-value">{personal.location}</span>
+              </div>
+              <div className="about__panel-row">
+                <span className="about__panel-label">DOMAIN</span>
+                <span className="about__panel-value">Control · AI</span>
+              </div>
+              <div className="about__panel-row">
+                <span className="about__panel-label">LANG</span>
+                <span className="about__panel-value">Python · MATLAB</span>
+              </div>
+            </div>
+            <div className="about__image-wrap reveal" style={{'--delay':'0.15s'}}>
               <img
                 src={personal.avatarUrl}
                 alt={personal.name}
@@ -29,7 +45,7 @@ export default function About() {
                 {personal.name.charAt(0)}
               </div>
             </div>
-          </div>
+          </aside>
 
           <div className="about__right">
             <div className="about__bio">
@@ -39,7 +55,7 @@ export default function About() {
                 </p>
               ))}
             </div>
-            <div className="about__actions reveal" style={{'--delay':'0.5s'}}>
+            <div className="about__actions reveal" style={{'--delay':'0.45s'}}>
               <a href={personal.cvUrl} className="btn" target="_blank" rel="noreferrer">
                 Download CV ↗
               </a>

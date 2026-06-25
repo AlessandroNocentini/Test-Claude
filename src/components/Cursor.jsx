@@ -21,7 +21,7 @@ export default function Cursor() {
     const loop = () => {
       rx += (mx - rx) * 0.1
       ry += (my - ry) * 0.1
-      ring.style.transform = `translate(${rx}px, ${ry}px)`
+      ring.style.transform = `translate(${rx}px, ${ry}px) rotate(45deg)`
       rafId = requestAnimationFrame(loop)
     }
 
@@ -30,18 +30,10 @@ export default function Cursor() {
 
     document.addEventListener('mousemove', onMove)
     rafId = requestAnimationFrame(loop)
+    document.addEventListener('mouseover', (e) => { if (e.target.closest('a, button')) expand() })
+    document.addEventListener('mouseout',  (e) => { if (e.target.closest('a, button')) shrink() })
 
-    document.addEventListener('mouseover', (e) => {
-      if (e.target.closest('a, button')) expand()
-    })
-    document.addEventListener('mouseout', (e) => {
-      if (e.target.closest('a, button')) shrink()
-    })
-
-    return () => {
-      document.removeEventListener('mousemove', onMove)
-      cancelAnimationFrame(rafId)
-    }
+    return () => { document.removeEventListener('mousemove', onMove); cancelAnimationFrame(rafId) }
   }, [])
 
   return (

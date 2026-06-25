@@ -173,6 +173,7 @@ button { font-family: inherit; cursor: pointer; }
   justify-content: space-between;
   padding: var(--nav-h) 2.5rem 3rem;
   overflow: hidden;
+  background: var(--bg);
 }
 
 .hero__eyebrow {
@@ -217,6 +218,7 @@ button { font-family: inherit; cursor: pointer; }
   color: var(--accent);
   animation: fadeUp 0.9s var(--ease) 0.46s both;
 }
+.hero__sep { color: var(--accent); margin-inline: 0.25em; }
 
 .hero__footer {
   display: flex;
@@ -260,6 +262,7 @@ button { font-family: inherit; cursor: pointer; }
   border-bottom: 1px solid var(--border);
   padding-block: 1rem;
   background: var(--bg-alt);
+  padding-block: 0.85rem;
 }
 .marquee__track {
   display: flex;
@@ -867,6 +870,7 @@ button { font-family: inherit; cursor: pointer; }
   border-top: 1px solid var(--border);
   padding-top: 3rem;
 }
+
 .contact__email {
   display: inline-block;
   font-family: var(--font-d);
@@ -941,6 +945,7 @@ button { font-family: inherit; cursor: pointer; }
   .hero      { padding-inline: 1.25rem; }
   .navbar    { padding-inline: 1.25rem; }
 
+  .navbar { padding-inline: 1.25rem; }
   .navbar__links {
     display: none;
     position: fixed;
