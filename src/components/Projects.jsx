@@ -19,8 +19,8 @@ export default function Projects() {
     <section id="projects" className="section" ref={ref}>
       <div className="container">
         <div className="sec-header reveal">
-          <span className="sec-num">05 / Projects</span>
-          <h2 className="sec-title">Selected Work</h2>
+          <span className="sec-num">// 05</span>
+          <h2 className="sec-title">Projects</h2>
         </div>
 
         <div className="projects__filters reveal" style={{ '--delay': '0.05s' }}>

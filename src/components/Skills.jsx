@@ -27,8 +27,8 @@ export default function Skills() {
     <section id="skills" className="section" ref={sectionRef}>
       <div className="container">
         <div className="sec-header reveal">
-          <span className="sec-num">04 / Skills</span>
-          <h2 className="sec-title">Skills & Tools</h2>
+          <span className="sec-num">// 04</span>
+          <h2 className="sec-title">Skills</h2>
         </div>
 
         <div className="skills__bars">
