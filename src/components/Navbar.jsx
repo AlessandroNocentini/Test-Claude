@@ -4,10 +4,8 @@ import { personal } from '../data/content'
 const links = [
   { label: 'About',         href: '#about' },
   { label: 'Experience',    href: '#experience' },
-  { label: 'Education',     href: '#education' },
   { label: 'Skills',        href: '#skills' },
   { label: 'Projects',      href: '#projects' },
-  { label: 'Certifications',href: '#certifications' },
   { label: 'Contact',       href: '#contact' },
 ]
 
@@ -16,7 +14,7 @@ export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false)
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 40)
+    const onScroll = () => setScrolled(window.scrollY > 60)
     window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
@@ -26,9 +24,7 @@ export default function Navbar() {
   return (
     <header className={`navbar${scrolled ? ' navbar--scrolled' : ''}`}>
       <a href="#hero" className="navbar__logo" onClick={close}>
-        <span className="navbar__logo-bracket">[</span>
-        AN
-        <span className="navbar__logo-bracket">]</span>
+        AN<span className="navbar__logo-dot">.</span>
       </a>
 
       <nav className={`navbar__links${menuOpen ? ' navbar__links--open' : ''}`}>

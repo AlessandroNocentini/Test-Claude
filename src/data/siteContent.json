@@ -176,20 +176,20 @@
     ]
   },
   "palette": {
-    "--bg":                "#080c14",
-    "--bg-alt":            "#0c1120",
-    "--surface":           "#111827",
-    "--accent":            "#e8714a",
-    "--accent-lt":         "#f09272",
-    "--text":              "#8da0be",
-    "--muted":             "#4a6088",
-    "--heading":           "#d0ddf2",
-    "--lvl-expert":        "#e8714a",
-    "--lvl-advanced":      "#6a9fd8",
-    "--lvl-intermediate":  "#5aaa8a",
-    "--lvl-beginner":      "#4e6880",
-    "--badge-academic":    "#5aaa8a",
-    "--badge-personal":    "#6a9fd8",
-    "--badge-professional":"#e8714a"
+    "--bg":                "#080808",
+    "--bg-alt":            "#111111",
+    "--surface":           "#161616",
+    "--accent":            "#c5f135",
+    "--accent-lt":         "#d8f76a",
+    "--text":              "#6a6a6a",
+    "--muted":             "#444444",
+    "--heading":           "#f0f0f0",
+    "--lvl-expert":        "#c5f135",
+    "--lvl-advanced":      "#5b8fff",
+    "--lvl-intermediate":  "#52c47a",
+    "--lvl-beginner":      "#555555",
+    "--badge-academic":    "#52c47a",
+    "--badge-personal":    "#5b8fff",
+    "--badge-professional":"#c5f135"
   }
 }

@@ -7,9 +7,9 @@ export default function Experience() {
   return (
     <section id="experience" className="section" ref={ref}>
       <div className="container">
-        <div className="sec-header reveal">
-          <span className="sec-num">// 02</span>
-          <h2 className="sec-title">Experience</h2>
+        <div className="sec-header reveal" data-num="02">
+          <span className="sec-num">Experience</span>
+          <h2 className="sec-title">Work Experience</h2>
         </div>
 
         <div className="timeline">

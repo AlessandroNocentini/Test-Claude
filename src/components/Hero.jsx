@@ -74,52 +74,28 @@ export default function Hero() {
 
   return (
     <section id="hero" className="hero">
-      <canvas ref={canvasRef} className="hero__canvas" aria-hidden="true" />
-
-      <div className="hero__hud hero__hud--tl" aria-hidden="true">
-        <span>SYS_ID // AN-001</span>
-        <span>{personal.location}</span>
-      </div>
-      <div className="hero__hud hero__hud--tr" aria-hidden="true">
-        <span className="hero__status">
-          <span className="hero__status-dot" />ONLINE
-        </span>
-        <span>CTRL + AI</span>
-      </div>
-      <div className="hero__hud hero__hud--br" aria-hidden="true">
-        <span>// PORTFOLIO v3.0</span>
+      <div className="hero__eyebrow">
+        <span className="hero__eyebrow-tag">{personal.location}</span>
+        <span className="hero__eyebrow-roles">{role1.trim()} — {role2.trim()}</span>
       </div>
 
-      <div className="hero__inner">
-        <p className="hero__eyebrow">
-          <span className="hero__bracket">[</span>
-          {' '}Automation · AI · Control{' '}
-          <span className="hero__bracket">]</span>
-        </p>
+      <div className="hero__name">
+        <span className="hero__n hero__n--1">ALES</span>
+        <span className="hero__n hero__n--2">SANDRO</span>
+        <span className="hero__n hero__n--3">NOCENTINI</span>
+      </div>
 
-        <h1 className="hero__name">
-          <span className="hero__name-first">{personal.name.split(' ')[0]}</span>
-          <br />
-          <span className="hero__name-last">{personal.name.split(' ')[1]}</span>
-        </h1>
-
-        <div className="hero__roles">
-          <span className="hero__role">{role1?.trim()}</span>
-          <span className="hero__sep" aria-hidden="true"> · </span>
-          <span className="hero__role">{role2?.trim()}</span>
-        </div>
-
+      <div className="hero__footer">
         <div className="hero__actions">
           <a href="#projects" className="btn">View Work ↓</a>
           <a href={personal.cvUrl} className="btn btn--ghost" target="_blank" rel="noreferrer">
             {personal.cvTitle} ↗
           </a>
         </div>
-      </div>
-
-      <div className="hero__scroll" aria-hidden="true">
-        <div className="hero__scroll-line" />
-        <span className="hero__scroll-label">SCROLL</span>
+        <div className="hero__scroll" aria-hidden="true">
+          <div className="hero__scroll-line" />
+          <span className="hero__scroll-label">Scroll</span>
+        </div>
       </div>
     </section>
   )

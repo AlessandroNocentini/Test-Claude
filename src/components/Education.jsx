@@ -19,8 +19,8 @@ export default function Education() {
   return (
     <section id="education" className="section" ref={ref}>
       <div className="container">
-        <div className="sec-header reveal">
-          <span className="sec-num">// 03</span>
+        <div className="sec-header reveal" data-num="03">
+          <span className="sec-num">Education</span>
           <h2 className="sec-title">Education</h2>
         </div>
 

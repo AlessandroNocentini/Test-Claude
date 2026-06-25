@@ -18,22 +18,9 @@ export default function Projects() {
   return (
     <section id="projects" className="section" ref={ref}>
       <div className="container">
-        <div className="sec-header reveal">
-          <span className="sec-num">// 05</span>
-          <h2 className="sec-title">Projects</h2>
-        </div>
-
-        <div className="projects__filters reveal" style={{ '--delay': '0.05s' }}>
-          {FILTERS.map(f => (
-            <button
-              key={f}
-              type="button"
-              className={`projects__filter-btn${activeFilter === f ? ' projects__filter-btn--active' : ''}`}
-              onClick={() => setActiveFilter(f)}
-            >
-              {f}
-            </button>
-          ))}
+        <div className="sec-header reveal" data-num="05">
+          <span className="sec-num">Projects</span>
+          <h2 className="sec-title">Selected Work</h2>
         </div>
 
         <div className="projects__filters reveal" style={{ '--delay': '0.05s' }}>
@@ -54,7 +41,11 @@ export default function Projects() {
             <div
               key={p.id}
               className="project-card reveal"
-              style={{ '--delay': `${i * 0.08}s`, cursor: 'pointer', display: isHidden(p) ? 'none' : undefined }}
+              style={{
+                '--delay': `${i * 0.08}s`,
+                cursor: 'pointer',
+                display: isHidden(p) ? 'none' : undefined,
+              }}
               onClick={() => setSelectedProject(p)}
             >
               <div className="project-card__meta">
@@ -78,7 +69,7 @@ export default function Projects() {
               <div className="project-card__footer">
                 {p.technologies.length > 0 && (
                   <div className="tag-list">
-                    {p.technologies.map((t) => <span key={t} className="tag tag--acc">{t}</span>)}
+                    {p.technologies.map((t) => <span key={t} className="tag">{t}</span>)}
                   </div>
                 )}
                 {p.links.length > 0 && (
@@ -89,6 +80,8 @@ export default function Projects() {
                   </div>
                 )}
               </div>
+
+              <div className="project-card__arrow">↗</div>
             </div>
           ))}
         </div>
