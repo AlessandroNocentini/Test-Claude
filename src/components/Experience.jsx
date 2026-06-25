@@ -8,8 +8,8 @@ export default function Experience() {
     <section id="experience" className="section" ref={ref}>
       <div className="container">
         <div className="sec-header reveal">
-          <span className="sec-num">02 / Experience</span>
-          <h2 className="sec-title">Work Experience</h2>
+          <span className="sec-num">// 02</span>
+          <h2 className="sec-title">Experience</h2>
         </div>
 
         <div className="timeline">

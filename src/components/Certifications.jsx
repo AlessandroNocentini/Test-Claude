@@ -8,7 +8,7 @@ export default function Certifications() {
     <section id="certifications" className="section" ref={ref}>
       <div className="container">
         <div className="sec-header reveal">
-          <span className="sec-num">06 / Certifications</span>
+          <span className="sec-num">// 06</span>
           <h2 className="sec-title">Certifications</h2>
         </div>
 

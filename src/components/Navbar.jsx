@@ -12,11 +12,11 @@ const links = [
 ]
 
 export default function Navbar() {
-  const [scrolled, setScrolled]   = useState(false)
-  const [menuOpen, setMenuOpen]   = useState(false)
+  const [scrolled, setScrolled] = useState(false)
+  const [menuOpen, setMenuOpen] = useState(false)
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 50)
+    const onScroll = () => setScrolled(window.scrollY > 40)
     window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
@@ -26,7 +26,9 @@ export default function Navbar() {
   return (
     <header className={`navbar${scrolled ? ' navbar--scrolled' : ''}`}>
       <a href="#hero" className="navbar__logo" onClick={close}>
-        AN<span>.</span>
+        <span className="navbar__logo-bracket">[</span>
+        AN
+        <span className="navbar__logo-bracket">]</span>
       </a>
 
       <nav className={`navbar__links${menuOpen ? ' navbar__links--open' : ''}`}>

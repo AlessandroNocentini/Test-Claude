@@ -20,7 +20,7 @@ export default function Education() {
     <section id="education" className="section" ref={ref}>
       <div className="container">
         <div className="sec-header reveal">
-          <span className="sec-num">03 / Education</span>
+          <span className="sec-num">// 03</span>
           <h2 className="sec-title">Education</h2>
         </div>
 
